@@ -1,0 +1,21 @@
+{% extends 'templates/app.twig' %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="panel panel-default">
+                <div class="panel-heading">Upload</div>
+                <div class="panel-body">
+                    <form action="{{ path_for('upload') }}" method="post" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label for="uploadedFile">File <small>.CSV only</small></label>
+                            <input type="file" name="uploadedFile" id="uploadedFile" class="form-control">
+                        </div>
+                        
+                        <button type="submit" class="btn btn-default">Upload file</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
