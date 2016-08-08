@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Upload;
+namespace App\ContactList;
 
 use League\Csv\Reader;
 use App\Models\Subscriber;
 use libphonenumber\PhoneNumberUtil as PhoneNumber;
 use libphonenumber\PhoneNumberFormat as PhoneNumberFormat;
 
-class Upload
+class ContactList
 {
 	public function parseFile($fileId, $fileName)
 	{
@@ -20,7 +20,7 @@ class Upload
 		foreach ($rows as $row) {
 			$number = $phoneUtil->parse($row[0], "GB");
 			$subscribers[] = array(
-				'upload_id' => $fileId,
+				'contact_list_id' => $fileId,
 				'msisdn' => $phoneUtil->format($number, PhoneNumberFormat::E164),
 				'created_at' => date('Y-m-d H:i:s'),
 				'updated_at' => date('Y-m-d H:i:s'),
@@ -32,5 +32,10 @@ class Upload
 		}	
 
 		return $subscribers;
+	}
+
+	public function createFile($contactListId) 
+	{
+		var_dump($contactListId);
 	}
 }

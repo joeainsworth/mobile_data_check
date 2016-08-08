@@ -65,12 +65,12 @@ $container['HomeController'] = function ($container) {
 	return new \App\Controllers\HomeController($container);
 };
 
-$container['UploadController'] = function ($container) {
-	return new \App\Controllers\UploadController($container);
+$container['ContactListController'] = function ($container) {
+	return new \App\Controllers\ContactListController($container);
 };
 
-$container['upload'] = function ($container) {
-	return new \App\Upload\Upload;
+$container['contactlist'] = function ($container) {
+	return new \App\ContactList\ContactList;
 };
 
 $container['SubscriberController'] = function ($container) {

@@ -12,11 +12,12 @@
 			</tr>
 		</thead>
 		<tbody>
-			{% for upload in uploads %}
+			{% for contactList in contactLists %}
 				<tr>
-					<td><a href="uploads/{{ upload.fileName }}" class="no-decoration" title="Download {{ upload.fileName }}">{{ upload.fileName }}</a></td>
-					<td>{{ upload.created_at }}</td>
-					<td><a href="{{ path_for('viewResults', {'id': upload.id}) }}" title="View results"><i class="fa fa-eye" aria-hidden="true"></i></a></td>
+					<td><a href="uploads/{{ contactList.fileName }}" class="no-decoration" title="Download {{ contactList.fileName }}">
+						{{ contactList.fileName }}</a></td>
+					<td>{{ contactList.created_at }}</td>
+					<td><a href="{{ path_for('viewResults', {'id': contactList.id}) }}" title="View results"><i class="fa fa-eye" aria-hidden="true"></i></a></td>
 					<td><i class="fa fa-download" aria-hidden="true"></i></td>
 				</tr>
 

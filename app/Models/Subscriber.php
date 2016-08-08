@@ -11,7 +11,7 @@ class Subscriber extends Model
 
 	// Columns to write too
 	protected $fillable = [ 
-		'upload_id',
+		'contact_list_id',
 		'msisdn',
 		'status',
 		'networkCode',
@@ -30,6 +30,6 @@ class Subscriber extends Model
 	// Each subscriber belongs to one original CSV upload
 	public function upload()
     {
-        return $this->hasOne('App\Models\Upload');
+        return $this->hasOne('App\Models\ContactList');
     }
 }

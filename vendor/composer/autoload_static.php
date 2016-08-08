@@ -160,17 +160,17 @@ class ComposerStaticInit21444dcd0918a1b14c186c49a040addd
     );
 
     public static $classMap = array (
+        'App\\ContactList\\ContactList' => __DIR__ . '/../..' . '/app/ContactList/ContactList.php',
+        'App\\Controllers\\ContactListController' => __DIR__ . '/../..' . '/app/Controllers/ContactList/ContactListController.php',
         'App\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Controllers/Controller.php',
         'App\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Controllers/HomeController.php',
-        'App\\Controllers\\ResultController' => __DIR__ . '/../..' . '/app/Controllers/Result/ResultController.php',
+        'App\\Controllers\\ResultController' => __DIR__ . '/../..' . '/app/Controllers/ContactList/ResultController.php',
         'App\\Controllers\\SubscriberController' => __DIR__ . '/../..' . '/app/Controllers/Subscriber/SubscriberController.php',
-        'App\\Controllers\\UploadController' => __DIR__ . '/../..' . '/app/Controllers/Upload/UploadController.php',
         'App\\Middleware\\CsrfViewMiddleware' => __DIR__ . '/../..' . '/app/Middleware/CsrfViewMiddleware.php',
         'App\\Middleware\\Middleware' => __DIR__ . '/../..' . '/app/Middleware/Middleware.php',
+        'App\\Models\\ContactList' => __DIR__ . '/../..' . '/app/Models/ContactList.php',
         'App\\Models\\Subscriber' => __DIR__ . '/../..' . '/app/Models/Subscriber.php',
-        'App\\Models\\Upload' => __DIR__ . '/../..' . '/app/Models/Upload.php',
         'App\\Subscriber\\Subscriber' => __DIR__ . '/../..' . '/app/Subscriber/Subscriber.php',
-        'App\\Upload\\Upload' => __DIR__ . '/../..' . '/app/Upload/Upload.php',
         'Carbon\\Carbon' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Carbon.php',
         'Carbon\\CarbonInterval' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/CarbonInterval.php',
         'Doctrine\\Common\\Inflector\\Inflector' => __DIR__ . '/..' . '/doctrine/inflector/lib/Doctrine/Common/Inflector/Inflector.php',

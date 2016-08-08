@@ -3,18 +3,18 @@
 namespace App\Controllers;
 
 use Slim\Views\Twig as View;
-use App\Models\Upload as Upload;
+use App\Models\ContactList as ContactList;
 
-class UploadController extends Controller
+class ContactListController extends Controller
 {
 	protected $view;
 
-	public function getUpload($request, $response)
+	public function getContactList($request, $response)
 	{
 		return $this->container->view->render($response, 'upload.twig');
 	}
 
-	public function postUpload($request, $response)
+	public function postContactList($request, $response)
 	{
 		$file = $request->getUploadedFiles();
 		$uploadedFile = $file['uploadedFile'];
@@ -28,11 +28,11 @@ class UploadController extends Controller
 			$uploadedFile->moveTo("../public/uploads/{$uploadedFileName}");
 
 			// Add upload to database
-			if(!$upload = Upload::create([ 'fileName' => $uploadedFileName ])) {
+			if(!$upload = ContactList::create([ 'fileName' => $uploadedFileName ])) {
 				throw new \Exception('There was a problem saving the file in the databaese.');
 			}
 
-			$subscribers = $this->upload->parseFile($upload->id, $uploadedFileName);
+			$subscribers = $this->contactlist->parseFile($upload->id, $uploadedFileName);
 			$this->subscriber->parseSubscribers($upload->id);
 
 			$this->flash->addMessage('success', 'Your upload has been processed and the results are displayed below.');

@@ -8,7 +8,7 @@ class Subscriber
 {
 	public function parseSubscribers($uploadId)
 	{
-		$subscribers = Subscriber::where('upload_id', $uploadId)->get();
+		$subscribers = Subscriber::where('contact_list_id', $uploadId)->get();
 		$i = 0;
 
 		foreach ($subscribers as $subscriber) {

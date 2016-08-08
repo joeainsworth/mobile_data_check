@@ -6,17 +6,17 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\ContactList\\ContactList' => $baseDir . '/app/ContactList/ContactList.php',
+    'App\\Controllers\\ContactListController' => $baseDir . '/app/Controllers/ContactList/ContactListController.php',
     'App\\Controllers\\Controller' => $baseDir . '/app/Controllers/Controller.php',
     'App\\Controllers\\HomeController' => $baseDir . '/app/Controllers/HomeController.php',
-    'App\\Controllers\\ResultController' => $baseDir . '/app/Controllers/Result/ResultController.php',
+    'App\\Controllers\\ResultController' => $baseDir . '/app/Controllers/ContactList/ResultController.php',
     'App\\Controllers\\SubscriberController' => $baseDir . '/app/Controllers/Subscriber/SubscriberController.php',
-    'App\\Controllers\\UploadController' => $baseDir . '/app/Controllers/Upload/UploadController.php',
     'App\\Middleware\\CsrfViewMiddleware' => $baseDir . '/app/Middleware/CsrfViewMiddleware.php',
     'App\\Middleware\\Middleware' => $baseDir . '/app/Middleware/Middleware.php',
+    'App\\Models\\ContactList' => $baseDir . '/app/Models/ContactList.php',
     'App\\Models\\Subscriber' => $baseDir . '/app/Models/Subscriber.php',
-    'App\\Models\\Upload' => $baseDir . '/app/Models/Upload.php',
     'App\\Subscriber\\Subscriber' => $baseDir . '/app/Subscriber/Subscriber.php',
-    'App\\Upload\\Upload' => $baseDir . '/app/Upload/Upload.php',
     'Carbon\\Carbon' => $vendorDir . '/nesbot/carbon/src/Carbon/Carbon.php',
     'Carbon\\CarbonInterval' => $vendorDir . '/nesbot/carbon/src/Carbon/CarbonInterval.php',
     'Doctrine\\Common\\Inflector\\Inflector' => $vendorDir . '/doctrine/inflector/lib/Doctrine/Common/Inflector/Inflector.php',

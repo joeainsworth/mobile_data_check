@@ -4,10 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Upload extends Model
+class ContactList extends Model
 {
 	// Name of the uploads table
-	protected $table = 'uploads';
+	protected $table = 'contact_list';
 
 	// Columns to write too
 	protected $fillable = [ 'fileName' ];
