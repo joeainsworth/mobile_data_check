@@ -11,4 +11,10 @@ class Upload extends Model
 
 	// Columns to write too
 	protected $fillable = [ 'fileName' ];
+
+	// One-to-many relationship
+	public function subscribers()
+    {
+        return $this->hasMany('App\Models\Subscriber');
+    }
 }

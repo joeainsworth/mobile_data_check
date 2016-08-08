@@ -35,7 +35,7 @@ class UploadController extends Controller
 			$subscribers = $this->upload->parseFile($upload->id, $uploadedFileName);
 			$this->subscriber->parseSubscribers($upload->id);
 
-			$this->flash->addMessage('success', 'Your upload has been processed.');
+			$this->flash->addMessage('success', 'Your upload has been processed and the results are displayed below.');
 		} else {
 			$this->flash->addMessage('error', 'There was a problem processing your upload.');
 		}

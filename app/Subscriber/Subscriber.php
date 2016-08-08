@@ -9,13 +9,20 @@ class Subscriber
 	public function parseSubscribers($uploadId)
 	{
 		$subscribers = Subscriber::where('upload_id', $uploadId)->get();
+		$i = 0;
 
 		foreach ($subscribers as $subscriber) {
 			$response = $this->postSubscriber($subscriber);
-			// Refactor into an array of ids & responses
-			// Execute mass update query after loop ends
+
+			// Refactor into an array for mass update query outside of loop
 			$subscriber->response_id = $response->id;
 			$subscriber->save();
+
+			// Limit requests to 50 per second
+			$i ++;
+			if ($i == 50) {
+				sleep(1);
+			}
 		}
 	}
 
@@ -26,7 +33,7 @@ class Subscriber
 			"username" => "a",
 			"password" => "b",
 			"msisdn" => (string)$subscriber->msisdn,
-			"webhook" => 'http://981583bf.ngrok.io/firetext_challenge/public/subscriber'
+			"webhook" => 'http://981583bf.ngrok.io/firetext_challenge/public/subscriber/post'
 		);
 		
 		$data_string = json_encode($data);

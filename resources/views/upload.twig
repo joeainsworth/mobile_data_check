@@ -12,7 +12,9 @@
                             <input type="file" name="uploadedFile" id="uploadedFile" class="form-control">
                         </div>
                         
-                        <button type="submit" class="btn btn-default">Upload file</button>
+                        <button type="submit" class="btn btn-primary" id="uploadButton">Upload file</button>
+
+                        {{ csrf.field | raw }}
                     </form>
                 </div>
             </div>

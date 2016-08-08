@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use Slim\Views\Twig as View;
+use App\Models\Upload as Upload;
 
 class HomeController extends Controller
 {

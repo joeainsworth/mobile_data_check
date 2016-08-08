@@ -1,0 +1,17 @@
+{% extends 'templates/app.twig' %}
+
+{% block content %}
+	<h1>{{ subscriber['msisdn'] }}</h1>
+	{% if subscriber['status'] != 'Success' %}
+		<div class="panel panel-danger">
+		  <div class="panel-heading">
+		    <h3 class="panel-title">Subscriber {{ subscriber['status']|lower }}</h3>
+		  </div>
+		  <div class="panel-body">
+		    Error code {{ subscriber['errorCode'] }}: {{ subscriber['errorDescription'] }}
+		  </div>
+		</div>
+	{% elseif subscriber['status'] ==  'Success' %}
+		ok
+	{% endif %}
+{% endblock %}

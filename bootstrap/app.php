@@ -28,7 +28,7 @@ $container = $app->getContainer();
 $container['csrf'] = function ($container) {
     return new \Slim\Csrf\Guard;
 };
-
+$app->add(new \App\Middleware\CsrfViewMiddleware($container));
 // $app->add($container->csrf);
 
 // Add flash support
@@ -81,8 +81,8 @@ $container['subscriber'] = function ($container) {
 	return new \App\Subscriber\Subscriber;
 };
 
-$container['ResultsController'] = function ($container) {
-	return new \App\Controllers\ResultsController($container);
+$container['ResultController'] = function ($container) {
+	return new \App\Controllers\ResultController($container);
 };
 
 require __DIR__ . '/../app/routes.php';

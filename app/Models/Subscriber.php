@@ -25,4 +25,11 @@ class Subscriber extends Model
 		'ported',
 		'portedFrom'
 	];
+
+	// One-to-one relationship
+	// Each subscriber belongs to one original CSV upload
+	public function upload()
+    {
+        return $this->hasOne('App\Models\Upload');
+    }
 }

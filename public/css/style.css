@@ -2,3 +2,16 @@ body {
 	padding-top: 80px;
 	padding-bottom: 40px;
 }
+
+h1 {
+	padding-bottom: 20px;
+}
+
+.navbar-brand {
+	text-transform: uppercase;
+	font-weight: 700;
+}
+
+.no-decoration {
+	text-decoration: none !important;
+}

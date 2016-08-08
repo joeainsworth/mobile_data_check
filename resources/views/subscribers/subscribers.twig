@@ -1,0 +1,33 @@
+{% extends 'templates/app.twig' %}
+
+{% block content %}
+	<h1>Subscribers</h1>
+	<table class="table table-striped table-hover ">
+		<thead>
+			<tr>
+				<th>MSISDN</th>
+				<th>Status</th>
+				<th>Network Code</th>
+				<th>Country Name</th>
+				<th>Country Code</th>
+				<th>Network</th>
+				<th>Ported</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for subscriber in subscribers %}
+			<tr>
+				<td>{{ subscriber.msisdn }}</td>
+				<td>{{ subscriber.status }}</td>
+				<td>{{ subscriber.networkCode }}</td>
+				<td>{{ subscriber.countryName }}</td>
+				<td>{{ subscriber.countryCode }}</td>
+				<td>{{ subscriber.network }}</td>
+				<td>{{ subscriber.ported }}</td>
+				<td><a href="{{ path_for('viewSubscriber', {'id': subscriber.id}) }}" title="View results"><i class="fa fa-eye" aria-hidden="true"></i></a></td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+{% endblock %}

@@ -9,14 +9,15 @@ class SubscriberController extends Controller
 {
 	protected $view;
 
-	public function index($request, $response)
-	{
-		return $this->container->view->render($response, 'subscriber.twig');
-	}
-
 	public function getSubscriber($request, $response, $args)
 	{
-		$subscriber = Subscriber::where('id', $args['id'])->first();
+		if($subscriber = Subscriber::where('id', $args['id'])->first()) {
+			$data = array('subscriber' => $subscriber);
+			return $this->container->view->render($response, 'subscribers/subscriber.twig', $data);
+		} else {
+			$this->flash->addMessage('error', 'There was an error retrieving the subscribers information.');
+			return $response->withRedirect($this->router->pathFor('home'));
+		}
 	}
 
 	public function postSubscriber($request, $response)
