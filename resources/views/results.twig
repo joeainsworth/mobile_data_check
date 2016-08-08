@@ -18,7 +18,7 @@
 						{{ contactList.fileName }}</a></td>
 					<td>{{ contactList.created_at }}</td>
 					<td><a href="{{ path_for('viewResults', {'id': contactList.id}) }}" title="View results"><i class="fa fa-eye" aria-hidden="true"></i></a></td>
-					<td><i class="fa fa-download" aria-hidden="true"></i></td>
+					<td><a href="{{ path_for('downloadResults', {'id': contactList.id}) }}" title="Download results"><i class="fa fa-download" aria-hidden="true"></i></td>
 				</tr>
 
 			{% endfor %}

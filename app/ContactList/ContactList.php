@@ -3,7 +3,9 @@
 namespace App\ContactList;
 
 use League\Csv\Reader;
+use League\Csv\Writer;
 use App\Models\Subscriber;
+use App\Models\ContactList;
 use libphonenumber\PhoneNumberUtil as PhoneNumber;
 use libphonenumber\PhoneNumberFormat as PhoneNumberFormat;
 
@@ -36,6 +38,37 @@ class ContactList
 
 	public function createFile($contactListId) 
 	{
-		var_dump($contactListId);
+		$fields = array(
+			'msisdn', 
+			'status', 
+			'networkCode', 
+			'errorCode', 
+			'errorDescription',
+			'location',
+			'countryName',
+			'countryCode',
+			'network',
+			'networkType',
+			'ported',
+			'portedFrom',
+			'created_at'
+		);
+
+		$contactList = ContactList::where('id', $contactListId)->first();
+		$subscribers = $contactList->subscribers()
+						->select($fields)
+						->orderBy('status', 'asc')
+						->get();
+
+		$csv = Writer::createFromFileObject(new \SplTempFileObject());
+		$csv->insertOne($fields);
+
+		foreach ($subscribers as $subscriber) {
+            $csv->insertOne($subscriber->toArray());
+        }
+
+		if(!$csv->output(uniqid($contactListId).'.csv')) {
+			throw new \Exception('There was a problem exporting the requested file.');
+		}
 	}
 }

@@ -8,6 +8,7 @@ require __DIR__ . '/../vendor/autoload.php';
 $app = new \Slim\App([
 	'settings' => [
 		'displayErrorDetails' => true,
+		'addContentLengthHeader' => false,
 		'db' => [
 			'driver' => 'mysql',
 			'host' => 'localhost',

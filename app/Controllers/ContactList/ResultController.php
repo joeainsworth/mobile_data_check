@@ -33,15 +33,6 @@ class ResultController extends Controller
 
 	public function getDownload($request, $response, $args)
 	{
-		$this->contactlist->createFile($args['id']);
-	// 	$file = '../../../firetext_challenge.sql';
-	//     $response = $response->withHeader('Content-Description', 'File Transfer')
-	// 	   ->withHeader('Content-Type', 'application/octet-stream')
-	// 	   ->withHeader('Content-Disposition', 'attachment;filename="'.basename($file).'"')
-	// 	   ->withHeader('Expires', '0')
-	// 	   ->withHeader('Cache-Control', 'must-revalidate')
-	// 	   ->withHeader('Pragma', 'public')
-	// 	   ->withHeader('Content-Length', filesize($file));
-	// 	return $response;
+		return $this->contactlist->createFile($args['id']);
 	}
 }

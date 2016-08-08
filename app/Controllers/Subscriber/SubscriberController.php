@@ -34,6 +34,7 @@ class SubscriberController extends Controller
 		$subscriber->countryName = $parsedBody['countryName'];
 		$subscriber->countryCode = $parsedBody['countryCode'];
 		$subscriber->network = $parsedBody['network'];
+		$subscriber->networkType = $parsedBody['networkType'];
 		$subscriber->ported = $parsedBody['ported'];
 		$subscriber->portedFrom = $parsedBody['portedFrom'];
 

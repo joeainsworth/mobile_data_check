@@ -11,6 +11,7 @@
 				<th>Country Name</th>
 				<th>Country Code</th>
 				<th>Network</th>
+				<th>Network Type</th>
 				<th>Ported</th>
 				<th></th>
 			</tr>
@@ -24,6 +25,7 @@
 				<td>{{ subscriber.countryName }}</td>
 				<td>{{ subscriber.countryCode }}</td>
 				<td>{{ subscriber.network }}</td>
+				<td>{{ subscriber.networkType }}</td>
 				<td>{{ subscriber.ported }}</td>
 				<td><a href="{{ path_for('viewSubscriber', {'id': subscriber.id}) }}" title="View results"><i class="fa fa-eye" aria-hidden="true"></i></a></td>
 			</tr>
