@@ -8,10 +8,10 @@
                 <div class="panel-body">
                     <form action="{{ path_for('upload') }}" method="post" enctype="multipart/form-data">
                         <div class="form-group">
-                            <label for="uploadedFile">File <small>.CSV only</small></label>
+                            <label for="uploadedFile">CSV File<br><small style="font-style: italic; font-weight: 400;">One column of mobile numbers</small></label>
                             <input type="file" name="uploadedFile" id="uploadedFile" class="form-control">
                         </div>
-                        
+
                         <button type="submit" class="btn btn-primary" id="uploadButton">Upload file</button>
 
                         {{ csrf.field | raw }}

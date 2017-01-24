@@ -21,22 +21,26 @@ class SubscriberController extends Controller
 	}
 
 	public function postSubscriber($request, $response)
-	{
+	{		
 		$parsedBody = $request->getParsedBody();
 
 		$subscriber = Subscriber::where('response_id', $parsedBody['id'])->first();
 
 		$subscriber->status = $parsedBody['status'];
-		$subscriber->networkCode = $parsedBody['networkCode'];
-		$subscriber->errorCode = $parsedBody['errorCode'];
-		$subscriber->errorDescription = $parsedBody['errorDescription'];
-		$subscriber->location = $parsedBody['location'];
-		$subscriber->countryName = $parsedBody['countryName'];
-		$subscriber->countryCode = $parsedBody['countryCode'];
-		$subscriber->network = $parsedBody['network'];
-		$subscriber->networkType = $parsedBody['networkType'];
-		$subscriber->ported = $parsedBody['ported'];
-		$subscriber->portedFrom = $parsedBody['portedFrom'];
+		if (!empty($parsedBody['errorCode'])) {
+			$subscriber->errorCode = $parsedBody['errorCode'];
+			$subscriber->errorDescription = $parsedBody['errorDescription'];
+		} elseif(!empty($parsedBody['portedFrom'])) {
+			$subscriber->portedFrom = $parsedBody['portedFrom'];
+		} else {
+			$subscriber->networkCode = $parsedBody['networkCode'];
+			// $subscriber->location = $parsedBody['location'];
+			$subscriber->countryName = $parsedBody['countryName'];
+			$subscriber->countryCode = $parsedBody['countryCode'];
+			$subscriber->network = $parsedBody['network'];
+			$subscriber->networkType = $parsedBody['networkType'];
+			$subscriber->ported = $parsedBody['ported'];
+		}
 
 		if (!$subscriber->save()) {
 			throw new \Exception("Subscriber update was not successful.");

@@ -70,20 +70,24 @@ $container['ContactListController'] = function ($container) {
 	return new \App\Controllers\ContactListController($container);
 };
 
-$container['contactlist'] = function ($container) {
-	return new \App\ContactList\ContactList;
+$container['contacts'] = function ($container) {
+	return new \App\Contacts\Contacts;
 };
 
 $container['SubscriberController'] = function ($container) {
 	return new \App\Controllers\SubscriberController($container);
 };
 
-$container['subscriber'] = function ($container) {
-	return new \App\Subscriber\Subscriber;
+$container['subscribers'] = function ($container) {
+	return new \App\Subscribers\Subscribers;
 };
 
 $container['ResultController'] = function ($container) {
 	return new \App\Controllers\ResultController($container);
+};
+
+$container['sms'] = function ($container) {
+	return new \App\SMS\SMS;
 };
 
 require __DIR__ . '/../app/routes.php';

@@ -9,5 +9,6 @@ return array(
     'libphonenumber' => array($vendorDir . '/giggsey/libphonenumber-for-php/src'),
     'Twig_' => array($vendorDir . '/twig/twig/lib'),
     'Pimple' => array($vendorDir . '/pimple/pimple/src'),
+    'FireText' => array($vendorDir . '/firetext/php-sdk/src'),
     'Doctrine\\Common\\Inflector\\' => array($vendorDir . '/doctrine/inflector/lib'),
 );

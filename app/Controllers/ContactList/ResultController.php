@@ -33,6 +33,6 @@ class ResultController extends Controller
 
 	public function getDownload($request, $response, $args)
 	{
-		return $this->contactlist->createFile($args['id']);
+		return $this->contacts->createFile($args['id']);
 	}
 }

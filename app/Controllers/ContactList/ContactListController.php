@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Helper\SMS as SMS;
 use Slim\Views\Twig as View;
 use App\Models\ContactList as ContactList;
 
@@ -32,8 +33,8 @@ class ContactListController extends Controller
 				throw new \Exception('There was a problem saving the file in the databaese.');
 			}
 
-			$subscribers = $this->contactlist->parseFile($upload->id, $uploadedFileName);
-			$this->subscriber->parseSubscribers($upload->id);
+			$subscribers = $this->contacts->parseFile($upload->id, $uploadedFileName);
+			$this->subscribers->parseSubscribers($upload->id);
 
 			$this->flash->addMessage('success', 'Your upload has been processed and the results are displayed below.');
 		} else {
